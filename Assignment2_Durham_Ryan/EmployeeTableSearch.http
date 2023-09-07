@@ -1,0 +1,42 @@
+﻿@Assignment2_Durham_Ryan_HostAddress = https://localhost:7061
+@WebApiHost = https://localhost:7061
+
+# returns all employees
+GET {{WebApiHost}}/api/employees
+
+###
+
+# returns specified employee
+GET {{WebApiHost}}/api/employees/1
+
+###
+
+# creates an employee
+POST {{Assignment2_Durham_Ryan_HostAddress}}/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "Braden",
+  "lastName": "Burham",
+  "dateOfBirth": "2000-01-01",
+  "maritalStatus": "Single"
+}
+
+###
+
+PUT {{WebApiHost}}/api/employees/1
+Content-Type: application/json
+
+{
+  "EmployeeID":1,
+  "firstName": "Ryan",
+  "lastName": "Durham",
+  "dateOfBirth": "2001-01-01",
+  "maritalStatus": "Single"
+}
+
+###
+
+DELETE {{WebApiHost}}/api/employees/3
+
+###
