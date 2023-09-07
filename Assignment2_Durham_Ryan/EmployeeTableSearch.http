@@ -12,7 +12,7 @@ GET {{WebApiHost}}/api/employees/1
 ###
 
 # creates an employee
-POST {{Assignment2_Durham_Ryan_HostAddress}}/api/employees
+POST {{WebApiHost}}/api/employees
 Content-Type: application/json
 
 {
@@ -24,6 +24,7 @@ Content-Type: application/json
 
 ###
 
+# Updates and employee
 PUT {{WebApiHost}}/api/employees/1
 Content-Type: application/json
 
@@ -37,6 +38,7 @@ Content-Type: application/json
 
 ###
 
+# Deletes and employee
 DELETE {{WebApiHost}}/api/employees/3
 
 ###

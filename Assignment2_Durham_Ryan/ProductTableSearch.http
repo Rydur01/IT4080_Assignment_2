@@ -1,1 +1,42 @@
-# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@Assignment2_Durham_Ryan_HostAddress = https://localhost:7061
+@WebApiHost = https://localhost:7061
+
+# returns all products
+GET {{WebApiHost}}/api/products
+
+###
+
+# returns specified product
+GET {{WebApiHost}}/api/products/2
+
+###
+
+# creates an product
+POST {{WebApiHost}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Baseball Bat",
+  "description": "A ball meant to be hit by a baseball bat while playing baseball.",
+  "cost": 499.99
+}
+
+###
+
+# Updates and product
+PUT {{WebApiHost}}/api/products/2
+Content-Type: application/json
+
+{
+  "productID": 2,
+  "name": "Baseball Bat",
+  "description": "A wooden bat meant to hit a baseball while playing baseball",
+  "cost": 499.99
+}
+
+###
+
+# Deletes and product
+DELETE {{WebApiHost}}/api/products/1
+
+###
