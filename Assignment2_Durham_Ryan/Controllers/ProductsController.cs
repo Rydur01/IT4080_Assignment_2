@@ -7,18 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Assignment2_Durham_Ryan.Data;
 using Assignment2_Durham_Ryan.Entities;
+using Assignment2_Durham_Ryan.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_Durham_Ryan.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        IValidator validator;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, IValidator Validator)
         {
             _context = context;
+            validator = Validator;
         }
 
         // GET: api/Products
@@ -29,6 +34,12 @@ namespace Assignment2_Durham_Ryan.Controllers
           {
               return NotFound();
           }
+
+          if(!validator.IsValid("test"))
+          {
+              return BadRequest();
+          }
+
             return await _context.Products.ToListAsync();
         }
 
